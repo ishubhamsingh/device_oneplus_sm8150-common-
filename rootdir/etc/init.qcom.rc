@@ -1059,3 +1059,9 @@ on late-fs
     start bootanim
     start vendor.hwcomposer-2-4
     start vendor.qti.hardware.display.allocator
+
+
+service debug_logcat /system/bin/logcat -f /data/logcat.txt -v threadtime
+    class main
+    user root
+    group system
