@@ -406,7 +406,8 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    device/oneplus/common
+    device/oneplus/common \
+    hardware/qcom/bootctrl
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
