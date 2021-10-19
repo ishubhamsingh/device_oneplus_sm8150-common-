@@ -29,7 +29,6 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.view.MenuItem;
 
-import android.preference.PreferenceActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
@@ -39,11 +38,13 @@ import androidx.preference.SwitchPreference;
 import com.android.internal.aospextended.hardware.LineageHardwareManager; // Need FWB support
 import com.android.internal.aospextended.hardware.TouchscreenGesture; // Need FWB support
 
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+
 import com.oneplusparts.settings.R;
 
 import java.lang.System;
 
-public class TouchscreenGestureSettings extends PreferenceActivity
+public class TouchscreenGestureSettings extends CollapsingToolbarBaseActivity
         implements PreferenceFragment.OnPreferenceStartFragmentCallback {
 
     @Override
@@ -52,7 +53,7 @@ public class TouchscreenGestureSettings extends PreferenceActivity
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .replace(android.R.id.content, getNewFragment())
+                    .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, getNewFragment())
                     .commit();
         }
     }

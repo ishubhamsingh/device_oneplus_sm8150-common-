@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2019 The LineageOS Project
+<!-- Copyright (C) 2009 The Android Open Source Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -11,7 +11,15 @@
      limitations under the License.
 -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/switchbar_background_color" android:state_activated="false" />
-    <item android:color="?android:attr/colorAccent" android:state_activated="true" />
-</selector>
+<resources>
+
+    <!-- Dashboard image tile size -->
+    <dimen name="dashboard_tile_image_size">36dp</dimen>
+
+    <!-- Dashboard foreground image size -->
+    <dimen name="dashboard_tile_foreground_image_size">24dp</dimen>
+
+    <!-- Dashboard foreground image inset (from background edge to foreground edge) -->
+    <dimen name="dashboard_tile_foreground_image_inset">6dp</dimen>
+
+</resources>

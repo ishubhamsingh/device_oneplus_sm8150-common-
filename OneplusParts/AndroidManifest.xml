@@ -32,14 +32,14 @@
     <application
         android:icon="@android:drawable/sym_def_app_icon"
         android:label="@string/oneplusparts"
-        android:theme="@style/Theme.Main"
+        android:theme="@style/Theme.SubSettingsBase"
         android:persistent="true"
         >
 
         <activity
             android:name=".OneplusPartsActivity"
             android:label="@string/oneplusparts"
-            android:exported="false">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -50,14 +50,14 @@
             android:name=".OneplusParts"
             android:label="@string/oneplusparts"
             android:targetActivity="OneplusPartsActivity"
-            android:icon="@drawable/ic_oneplusparts">
+            android:exported="true" >
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
             <meta-data
-                android:name="com.android.settings.bg.hint"
-                android:resource="@color/homepage_oneplusparts_background" />
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_oneplusparts" />
             <meta-data
                 android:name="com.android.settings.category"
                 android:value="com.android.settings.category.ia.homepage" />
@@ -66,36 +66,42 @@
                 android:resource="@string/oneplusparts_summary" />
         </activity-alias>
 
-        <receiver android:name=".BootCompletedReceiver">
+        <receiver android:name=".BootCompletedReceiver"
+                  android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".Startup" >
+        <receiver android:name=".Startup" 
+                  android:exported="true" >
             <intent-filter android:priority="100" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <service android:name=".doze.DozeService"
-                 android:permission="OneplusDozeService">
+                 android:permission="OneplusDozeService"
+                 android:exported="true" >
         </service>
 
         <activity
             android:name=".doze.DozeSettingsActivity"
             android:label="@string/ambient_display_title"
-            android:theme="@style/Theme.Main">
+            android:exported="true"
+            android:theme="@style/Theme.SubSettingsBase">
         </activity>
 
         <activity
             android:name=".touch.TouchscreenGestureSettings"
             android:label="@string/touchscreen_gesture_settings_title"
-            android:theme="@style/Theme.Main">
+            android:exported="true"
+            android:theme="@style/Theme.SubSettingsBase">
         </activity>
 
-        <activity android:name=".device.KeyHandler" />
+        <activity android:name=".device.KeyHandler" 
+                  android:exported="true" />
 
     </application>
 </manifest>

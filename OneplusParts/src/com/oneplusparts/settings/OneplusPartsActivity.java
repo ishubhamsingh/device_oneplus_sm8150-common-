@@ -21,8 +21,10 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+import com.android.settingslib.collapsingtoolbar.R;
 
-public class OneplusPartsActivity extends Activity {
+public class OneplusPartsActivity extends CollapsingToolbarBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class OneplusPartsActivity extends Activity {
         if (fragment == null) {
             mOneplusPartsFragment = new OneplusParts();
             getFragmentManager().beginTransaction()
-                    .add(android.R.id.content, mOneplusPartsFragment)
+                    .add(R.id.content_frame, mOneplusPartsFragment)
                     .commit();
         }
     }
