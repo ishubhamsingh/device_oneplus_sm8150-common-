@@ -18,15 +18,17 @@ cc_binary {
     defaults: ["hidl_defaults"],
     init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.oneplus_msmnile.rc"],
     vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.oneplus_msmnile.xml"],
+    vendor: true,
     relative_install_path: "hw",
     srcs: [
         "service.cpp", 
         "BiometricsFingerprint.cpp"
     ],
     shared_libs: [
-        "libbase",
-        "libhidlbase",
+        "libcutils",
         "liblog",
+        "libhidlbase",
+        "libhardware",
         "libutils",
         "android.hardware.biometrics.fingerprint@2.1",
         "android.hardware.biometrics.fingerprint@2.2",
@@ -34,12 +36,12 @@ cc_binary {
         "//device/oneplus/common:vendor.oneplus.fingerprint.extension@1.0",
         "//device/oneplus/common:vendor.oneplus.hardware.display@1.0",
     ],
-    proprietary: true,
 }
 
 cc_library_static {
     name: "libudfps_extension.oneplus_msmnile",
     srcs: ["UdfpsExtension.cpp"],
+    whole_static_libs: ["//device/oneplus/common:vendor.oneplus.hardware.display@1.0"],
     include_dirs: [
         "frameworks/native/services/surfaceflinger/CompositionEngine/include"
     ],
